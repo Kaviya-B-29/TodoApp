@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-lg rounded-xl w-full max-w-2xl p-6 min-h-[400px]">
+    <h1 class="text-3xl font-bold text-center mb-4">Income Expense Tracker</h1>
+
+    <!-- Balance Summary -->
+    <div class="mb-6 text-center">
+      <h2 class="text-xl font-semibold p-4">
+        Balance: ₹<span id="net-balance" class="text-blue-600">0</span>
+      </h2>
+      <div class="flex justify-center gap-8 mt-2 text-sm">
+        <p>Total Income: ₹<span id="total-income" class="text-green-600">0</span></p>
+        <p>Total Expense: ₹<span id="total-expense" class="text-red-600">0</span></p>
+      </div>
+    </div>
+
+    <!-- Entry Form -->
+    <form id="entry-form" class="flex flex-col md:flex-row md:flex-wrap gap-3 mb-4">
+      <input
+        type="text"
+        id="description"
+        placeholder="Description"
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+        required/>
+      <input
+        type="number"
+        id="amount"
+        placeholder="Amount"
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+        required/>
+      <select
+        id="type"
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-md">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+     <!-- Add button  -->
+
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"> Add
+      </button>
+
+      <!-- Reset button  -->
+      <div class="w-full flex justify-center">
+        <button
+          type="button"
+          id="reset-btn"
+          class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-400">Reset
+        </button>
+      </div>
+    </form>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center gap-6 mb-4 text-sm">
+      <label><input type="radio" name="filter" value="all" checked /> All</label>
+      <label><input type="radio" name="filter" value="income" /> Income</label>
+      <label><input type="radio" name="filter" value="expense" /> Expense</label>
+    </div>
+
+    <!-- Entry List -->
+    <ul id="entry-list" class="space-y-3"></ul>
+  </div>
+
+  <script src="main.js"></script>
+</body>
